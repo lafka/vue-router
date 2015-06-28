@@ -36,9 +36,10 @@ module.exports = function (Vue) {
     },
 
     update: function (value) {
+      var hashbang = this.vm.route._router._hashbang
       this.destination = value
       if (this.el.tagName === 'A') {
-        this.el.href = value
+        this.el.href = '#' + (hashbang ? '!' : '') + value
       }
     }
 
